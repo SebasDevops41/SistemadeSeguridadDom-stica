@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Sebastian Campo Vidal",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 183.1,
+      "left": -251.55,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -174.8,
+      "left": -215.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 169.6,
+      "left": 130.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 332.4,
+      "left": -53.8,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 322.8, "left": 3.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 319.2,
+      "left": 69,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP6", "keypad1:C4", "blue", [ "v-8", "h0" ] ],
+    [ "pico:GP7", "keypad1:C3", "blue", [ "v-12", "h0" ] ],
+    [ "pico:GP8", "keypad1:C2", "blue", [ "v-16", "h0" ] ],
+    [ "pico:GP9", "keypad1:C1", "blue", [ "v-20", "h0" ] ],
+    [ "pico:GP10", "keypad1:R4", "purple", [ "v-24", "h0" ] ],
+    [ "pico:GP11", "keypad1:R3", "purple", [ "v-28", "h0" ] ],
+    [ "pico:GP12", "keypad1:R2", "purple", [ "v-32", "h0" ] ],
+    [ "pico:GP13", "keypad1:R1", "purple", [ "v-36", "h0" ] ],
+    [ "pico:GP0", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "pico:GP1", "lcd1:SCL", "green", [ "v0" ] ],
+    [ "lcd1:VCC", "pico:3V3", "red", [ "h0" ] ],
+    [ "lcd1:GND", "pico:GND.8", "black", [ "h0" ] ],
+    [ "led1:A", "pico:GP14", "green", [ "v48", "h-268.8" ] ],
+    [ "led1:C", "pico:GND.7", "green", [ "v19.2", "h-153.2" ] ],
+    [ "led2:A", "pico:GP15", "green", [ "v105.6", "h-374.4", "v-220.8" ] ],
+    [ "led2:C", "pico:GND.6", "green", [ "v86.4", "h-258.8" ] ],
+    [ "bz1:1", "pico:GND.5", "green", [ "h-374.4", "v-87.6" ] ],
+    [ "bz1:2", "pico:GP16", "green", [ "v38.4", "h-432.4", "v-126" ] ]
+  ],
+  "dependencies": {}
+}
